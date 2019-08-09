@@ -1,0 +1,22 @@
+#!/bin/ksh -l
+#BSUB -a poe
+#BSUB -o /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_gfs_00.o%J
+#BSUB -e /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_gfs_00.o%J
+#BSUB -q dev
+#BSUB -n 1
+#BSUB -R "affinity[core]"
+#BSUB -W 0:40
+#BSUB -M 1000
+#BSUB -P NAM-T2O
+#BSUB -J grib2_trk1
+
+# EXPORT list here
+set -x
+export envir=prod
+export cmodel=gfs
+export NET=gfs
+export RUN=gfs
+export cyc=00
+export job=tracker_gfs_00
+
+. /meso/save/Guang.Ping.Lou/EMC_verif/trk_glbl/tags/genesis_tracker.v3.4.7/jobs/JTRACKER_test 20170709

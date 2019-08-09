@@ -1,0 +1,20 @@
+#BSUB -a poe
+#BSUB -n 50
+#BSUB -R "span[ptile=16]"
+#BSUB -W 0:40
+#BSUB -x
+#BSUB -o /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_eens_12.o%J
+#BSUB -e /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_eens_12.o%J
+#BSUB -q "dev"
+#BSUB -M 1000
+#BSUB -P NAM-T2O
+#BSUB -J ecen_trk2
+set -x
+export envir=prod
+export cmodel=eens
+export NET=hourly
+export RUN=ecme
+export cyc=12
+export job=tracker_eens_12
+
+. /meso/save/Guang.Ping.Lou/EMC_verif/trk_glbl/tags/genesis_tracker.v3.4.6/jobs/JTRACKER

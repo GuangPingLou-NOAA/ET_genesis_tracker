@@ -1,0 +1,22 @@
+#!/bin/ksh -l
+#BSUB -a poe
+#BSUB -o /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_emx_12.o%J
+#BSUB -e /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_emx_12.o%J
+#BSUB -q dev
+#BSUB -n 1
+#BSUB -R "affinity[core]"
+#BSUB -W 0:40
+#BSUB -M 1000
+#BSUB -P NAM-T2O
+#BSUB -J grib2_trk1
+
+set -x
+export envir=prod
+export cmodel=ecmwf
+export NET=mrf
+export RUN=ecmwf
+export cyc=12
+export job=tracker_ecmwf_12
+
+. /meso/save/Guang.Ping.Lou/EMC_verif/trk_glbl/tags/genesis_tracker.v3.4.6/jobs/JTRACKER
+##. /meso/save/Guang.Ping.Lou/genesis_tracker.v3.4.5/jobs/JTRACKER.test 20170627

@@ -1,0 +1,21 @@
+#!/bin/ksh -l
+#BSUB -a poe
+#BSUB -n 20
+#BSUB -R "span[ptile=8]"
+#BSUB -W 0:40
+#BSUB -o /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_fnmoc_12.o%J
+#BSUB -e /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_fnmoc_12.o%J
+#BSUB -q dev
+#BSUB -P NAM-T2O
+#BSUB -J grib2_trk1
+#BSUB -M 1000
+# EXPORT list here
+set -x
+export envir=prod
+export cmodel=fens
+export NET=gens
+export RUN=fens
+export cyc=12
+export job=tracker_fens_12
+
+. /meso/save/Guang.Ping.Lou/genesis_tracker.v3.4.0/jobs/JTRACKER

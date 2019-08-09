@@ -1,0 +1,25 @@
+##!/bin/ksh -l
+#BSUB -o /gpfs/dell2/ptmp/Guang.Ping.Lou/tmptrk/tracker_gfs_06.o%J
+#BSUB -e /gpfs/dell2/ptmp/Guang.Ping.Lou/tmptrk/tracker_gfs_06.o%J
+#BSUB -q dev
+#BSUB -n 1
+#BSUB -R "affinity[core]"
+#BSUB -W 0:40
+#BSUB -P FV3GFS-T2O
+#BSUB -R span[ptile=1]
+#BSUB -J gfs_trk1
+
+# EXPORT list here
+set -x
+export envir=prod
+export cmodel=gfs
+export NET=gfs
+export RUN=gfs
+export cyc=06
+export job=tracker_gfs_06
+
+export HOMEDIR=`pwd`
+
+. $HOMEDIR/../jobs/JTRACKER_test 20190731
+#. /meso/save/Guang.Ping.Lou/EMC_verif/trk_glbl/tags/genesis_tracker.v3.4.7/jobs/JTRACKER
+

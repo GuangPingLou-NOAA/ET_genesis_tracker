@@ -1,0 +1,22 @@
+#!/bin/ksh -l
+#BSUB -a poe
+#BSUB -o /ptmpp1/Guang.Ping.Lou/tmptrk/tracker_nvgm_12.o%J
+#BSUB -e /ptmpp1/Guang.Ping.Lou/tmptrk/tracker_nvgm_12.o%J
+#BSUB -q dev
+#BSUB -n 1
+#BSUB -R "affinity[core]"
+#BSUB -W 0:40
+#BSUB -M 1000
+#BSUB -P NAM-T2O
+#BSUB -J grib2_trk1
+
+# EXPORT list here
+set -x
+export envir=prod
+export cmodel=nvgm
+export NET=nvgm
+export RUN=nvgm
+export cyc=12
+export job=tracker_nvgm_12
+
+. /meso/save/Guang.Ping.Lou/EMC_verif/trk_glbl/tags/genesis_tracker.v3.4.6/jobs/JTRACKER

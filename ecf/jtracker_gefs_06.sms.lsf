@@ -1,0 +1,21 @@
+#!/bin/ksh -l
+#BSUB -a poe
+#BSUB -n 21
+#BSUB -R "span[ptile=16]"
+#BSUB -W 0:40
+#BSUB -o /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_gefs_06.o%J
+#BSUB -e /ptmpp2/Guang.Ping.Lou/tmptrk/tracker_gefs_06.o%J
+#BSUB -q dev
+#BSUB -J grib2_trk1
+#BSUB -P NAM-T2O
+#BSUB -M 1000
+# EXPORT list here
+set -x
+export envir=prod
+export cmodel=gefs
+export NET=gens
+export RUN=gefs
+export cyc=06
+export job=tracker_gefs_06
+
+. /meso/save/Guang.Ping.Lou/genesis_tracker.v3.4.0/jobs/JTRACKER
